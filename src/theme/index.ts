@@ -15,10 +15,10 @@ const lightTheme: Theme = {
 };
 
 const darkTheme: Theme = {
-  backgroundColor: Palette.cultured,
+  backgroundColor: Palette.midnightGreen,
   titleColor: Palette.liverOrgan,
-  linkColor: Palette.midnightGreen,
-  paragraphColor: Palette.pineGreen,
+  linkColor: Palette.pineGreen,
+  paragraphColor: Palette.dutchWhite,
 };
 
 export default {darkTheme, lightTheme};
