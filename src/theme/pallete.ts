@@ -4,6 +4,8 @@ enum Palette {
   dutchWhite = '#D7C9AA',
   pineGreen = '#0b7A75',
   midnightGreen = '#19535F',
+  black = '#000',
+  grey = '#ddd',
 }
 
 export default Palette;
