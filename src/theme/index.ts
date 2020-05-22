@@ -1,11 +1,11 @@
 import Palette from './pallete';
 
-type Theme = {
+export interface Theme {
   backgroundColor: Palette;
   titleColor: Palette;
   linkColor: Palette;
   paragraphColor: Palette;
-};
+}
 
 const lightTheme: Theme = {
   backgroundColor: Palette.cultured,
