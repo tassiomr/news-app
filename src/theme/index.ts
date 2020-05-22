@@ -5,20 +5,26 @@ export interface Theme {
   titleColor: Palette;
   linkColor: Palette;
   paragraphColor: Palette;
+  activeIcon: Palette;
+  inactiveIcon: Palette;
 }
 
-const lightTheme: Theme = {
+const light: Theme = {
   backgroundColor: Palette.cultured,
   titleColor: Palette.liverOrgan,
   linkColor: Palette.midnightGreen,
   paragraphColor: Palette.pineGreen,
+  activeIcon: Palette.liverOrgan,
+  inactiveIcon: Palette.grey,
 };
 
-const darkTheme: Theme = {
+const dark: Theme = {
   backgroundColor: Palette.midnightGreen,
   titleColor: Palette.liverOrgan,
   linkColor: Palette.pineGreen,
   paragraphColor: Palette.dutchWhite,
+  activeIcon: Palette.cultured,
+  inactiveIcon: Palette.pineGreen,
 };
 
-export default {darkTheme, lightTheme};
+export default {dark, light};
