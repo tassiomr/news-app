@@ -20,7 +20,7 @@ const light: Theme = {
 
 const dark: Theme = {
   backgroundColor: Palette.midnightGreen,
-  titleColor: Palette.liverOrgan,
+  titleColor: Palette.cultured,
   linkColor: Palette.pineGreen,
   paragraphColor: Palette.dutchWhite,
   activeIcon: Palette.cultured,
