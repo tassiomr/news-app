@@ -4,7 +4,7 @@ import {Platform} from 'react-native';
 
 const size = {
   ExtraLarge: 48,
-  large: 24,
+  large: 22,
   small: 18,
   link: 14,
 };
@@ -31,12 +31,15 @@ export const TitleComponent = styled.Text`
   font-family: SairaExtraCondensed-Medium;
   padding-left: 8px;
   padding-right: 8px;
+  line-height: 32px;
+  margin-top: 16px;
 `;
 export const ParagraphComponent = styled.Text`
   font-size: ${normalize(size.small)}px;
   color: ${(props) => props.theme.paragraphColor};
   font-family: SairaExtraCondensed-Medium;
-  line-height: 23px;
+  line-height: 28px;
+  margin-top: 8px;
   padding-left: 8px;
   padding-right: 8px;
 `;
