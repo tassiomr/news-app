@@ -39,7 +39,7 @@ async function getTechnologyNotices() {
 async function getScienceNotices() {
   try {
     const response = await api.get(
-      technology.replace('{api-key}', constants.apiKey),
+      science.replace('{api-key}', constants.apiKey),
     );
 
     if (response) {
