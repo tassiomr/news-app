@@ -1,6 +1,10 @@
 import React from 'react';
-import {Screen} from '../../components';
+import {Screen, Text} from '../../components';
 
 export const Favorites: React.FC = () => {
-  return <Screen></Screen>;
+  return (
+    <Screen>
+      <Text.HeaderTitle text="Favorites" />
+    </Screen>
+  );
 };
