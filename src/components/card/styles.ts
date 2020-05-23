@@ -3,15 +3,15 @@ import {Platform, ScrollView} from 'react-native';
 import {normalize} from '../../../src/configs/helpers';
 
 export const Image = styled.Image`
-  height: 60%;
+  height: 200px;
   width: 100%;
-  background-color: blue;
+  background-color: ${(props) => props.theme.backgroundColor};
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 `;
 
 export const CardContainer = styled.View`
-  height: ${normalize(200)}px;
+  min-height: ${normalize(200)}px;
   width: 100%;
   margin-bottom: 16px;
   background-color: ${(props) => props.theme.backgroundColor};

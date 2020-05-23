@@ -1,6 +1,7 @@
 import React from 'react';
 import {Favorites, Settings, Notice} from '../screens';
 import {createStackNavigator} from '@react-navigation/stack';
+import {FavoriteProvider} from '../../src/context/favorites.context';
 
 const FavoritesStack = createStackNavigator();
 
@@ -10,23 +11,25 @@ const headerOptions = {
 
 const FavoritesRoutes: React.FC = () => {
   return (
-    <FavoritesStack.Navigator>
-      <FavoritesStack.Screen
-        options={headerOptions}
-        component={Favorites}
-        name="Favorites"
-      />
-      <FavoritesStack.Screen
-        options={headerOptions}
-        component={Notice}
-        name="Notice"
-      />
-      <FavoritesStack.Screen
-        options={headerOptions}
-        component={Settings}
-        name="Settings"
-      />
-    </FavoritesStack.Navigator>
+    <FavoriteProvider>
+      <FavoritesStack.Navigator>
+        <FavoritesStack.Screen
+          options={headerOptions}
+          component={Favorites}
+          name="Favorites"
+        />
+        <FavoritesStack.Screen
+          options={headerOptions}
+          component={Notice}
+          name="Notice"
+        />
+        <FavoritesStack.Screen
+          options={headerOptions}
+          component={Settings}
+          name="Settings"
+        />
+      </FavoritesStack.Navigator>
+    </FavoriteProvider>
   );
 };
 
