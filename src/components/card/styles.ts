@@ -2,12 +2,16 @@ import styled from 'styled-components/native';
 import {Platform, ScrollView} from 'react-native';
 import {normalize} from '../../../src/configs/helpers';
 
-export const Image = styled.Image`
+export const Image = styled.ImageBackground.attrs((props) => ({
+  imageStyle: {
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+}))`
   height: 200px;
   width: 100%;
-  background-color: ${(props) => props.theme.backgroundColor};
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardContainer = styled.View`
