@@ -1,4 +1,4 @@
 export enum NoticeType {
-  technology = 'technology',
-  science = 'science',
+  technology = 'Technology',
+  science = 'Science',
 }
