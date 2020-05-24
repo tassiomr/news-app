@@ -20,7 +20,7 @@ export const HeaderTitleComponent = styled.Text`
     ios: {
       shadowColor: '#000',
       shadowOffset: '0px 5px',
-      shadowOpacity: '0.1px',
+      shadowOpacity: '0.1',
       shadowRadius: '2px',
     },
   })};
