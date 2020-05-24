@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import {Screen, Text, Card, NoticeFlatList} from '../../components';
-import {useNotice, NoticeProvider} from '../../../src/context/noticies.context';
+import {Screen, Text, NoticeFlatList, Toogle} from '../../components';
+import {useNotice} from '../../../src/context/noticies.context';
 
 export const Home: React.FC = () => {
-  const {getNoticies, notices} = useNotice();
+  const {getNoticies, notices, changePage} = useNotice();
 
   useEffect(() => {
     getNoticies();
@@ -11,8 +11,8 @@ export const Home: React.FC = () => {
 
   return (
     <Screen>
-      <Text.HeaderTitle text="Home" />
-      <NoticeFlatList data={notices} />
+      <NoticeFlatList data={notices.data} />
+      <Toogle type={notices.type} changePage={changePage} />
     </Screen>
   );
 };

@@ -7,6 +7,12 @@ export interface Theme {
   paragraphColor: Palette;
   activeIcon: Palette;
   inactiveIcon: Palette;
+  button: {
+    selected: Palette;
+    deselected: Palette;
+    textSelected: Palette;
+    textDeselected: Palette;
+  };
 }
 
 const light: Theme = {
@@ -16,6 +22,12 @@ const light: Theme = {
   paragraphColor: Palette.pineGreen,
   activeIcon: Palette.liverOrgan,
   inactiveIcon: Palette.grey,
+  button: {
+    selected: Palette.liverOrgan,
+    deselected: Palette.cultured,
+    textSelected: Palette.cultured,
+    textDeselected: Palette.liverOrgan,
+  },
 };
 
 const dark: Theme = {
@@ -25,6 +37,12 @@ const dark: Theme = {
   paragraphColor: Palette.dutchWhite,
   activeIcon: Palette.cultured,
   inactiveIcon: Palette.pineGreen,
+  button: {
+    selected: Palette.cultured,
+    deselected: Palette.liverOrgan,
+    textDeselected: Palette.cultured,
+    textSelected: Palette.liverOrgan,
+  },
 };
 
 export default {dark, light};

@@ -3,7 +3,7 @@ import {normalize} from '../../../src/configs/helpers';
 import {Platform} from 'react-native';
 
 const size = {
-  ExtraLarge: 48,
+  ExtraLarge: 32,
   large: 22,
   small: 18,
   link: 14,
@@ -18,13 +18,15 @@ export const HeaderTitleComponent = styled.Text`
   background-color: ${(props) => props.theme.backgroundColor};
   ${Platform.select({
     ios: {
+      top: 10,
       shadowColor: '#000',
       shadowOffset: '0px 5px',
-      shadowOpacity: '0.1px',
+      shadowOpacity: '0.1',
       shadowRadius: '2px',
     },
   })};
 `;
+
 export const TitleComponent = styled.Text`
   font-size: ${normalize(size.large)}px;
   color: ${(props) => props.theme.titleColor};
@@ -34,6 +36,7 @@ export const TitleComponent = styled.Text`
   line-height: 32px;
   margin-top: 16px;
 `;
+
 export const ParagraphComponent = styled.Text`
   font-size: ${normalize(size.small)}px;
   color: ${(props) => props.theme.paragraphColor};
@@ -43,6 +46,7 @@ export const ParagraphComponent = styled.Text`
   padding-left: 8px;
   padding-right: 8px;
 `;
+
 export const LinkComponent = styled.Text`
   font-size: ${normalize(size.link)}px;
   color: ${(props) => props.theme.linkColor};

@@ -1,29 +1,49 @@
 import React, {createContext, Children, useState, useContext} from 'react';
 import {INotice} from '../typescript/interfaces';
+import {NoticeType} from '../typescript/enums';
 import noticesService from '../../src/services/notices.service';
 
+type notices = {
+  type: NoticeType;
+  data: [INotice?];
+};
 interface NotificeContext {
-  isLoading: boolean;
   getNoticies: Function;
-  notices: [INotice?];
+  notices: notices;
+  changePage: (...params: any) => any;
 }
 
 const NoticeContext = createContext<NotificeContext>({} as NotificeContext);
 
 export const NoticeProvider: React.FC = ({children}) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [notices, setNotices] = useState<[INotice?]>([]);
+  const [notices, setNotices] = useState<{type: NoticeType; data: [INotice?]}>({
+    type: NoticeType.science,
+    data: [],
+  });
+
+  const [technology, setTechnology] = useState<[INotice?]>([]);
+  const [science, setScience] = useState<[INotice?]>([]);
 
   async function getNoticies() {
-    if (!notices.length) {
+    if (!notices.data.length) {
       noticesService.getScienceNotices().then((e: any) => {
-        setNotices(e);
+        setScience(e);
+        setNotices({...notices, data: e});
+        noticesService.getTechnologyNotices().then((e: any) => {
+          setTechnology(e);
+        });
       });
     }
   }
 
+  function changePage() {
+    notices.type === NoticeType.science
+      ? setNotices({type: NoticeType.technology, data: technology})
+      : setNotices({type: NoticeType.science, data: science});
+  }
+
   return (
-    <NoticeContext.Provider value={{isLoading, notices, getNoticies}}>
+    <NoticeContext.Provider value={{notices, getNoticies, changePage}}>
       {children}
     </NoticeContext.Provider>
   );
