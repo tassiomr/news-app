@@ -7,9 +7,9 @@ const {technology, science} = endpoints;
 
 const rawNotice = (data: any): [INotice?] => {
   const response: [INotice?] = [];
-
   data.forEach((e: any) => {
     response.push({
+      id: e.title,
       title: e.title,
       resume: e.abstract,
       picture: e.multimedia[0].url,
