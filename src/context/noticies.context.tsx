@@ -8,16 +8,14 @@ type notices = {
   data: [INotice?];
 };
 interface NotificeContext {
-  isLoading: boolean;
   getNoticies: Function;
   notices: notices;
-  changePage: Function;
+  changePage: (...params: any) => any;
 }
 
 const NoticeContext = createContext<NotificeContext>({} as NotificeContext);
 
 export const NoticeProvider: React.FC = ({children}) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [notices, setNotices] = useState<{type: NoticeType; data: [INotice?]}>({
     type: NoticeType.science,
     data: [],
@@ -38,17 +36,14 @@ export const NoticeProvider: React.FC = ({children}) => {
     }
   }
 
-  function changePage(noticeType: NoticeType) {
-    if (noticeType === NoticeType.science) {
-      setNotices({type: noticeType, data: science});
-    } else {
-      setNotices({type: noticeType, data: technology});
-    }
+  function changePage() {
+    notices.type === NoticeType.science
+      ? setNotices({type: NoticeType.technology, data: technology})
+      : setNotices({type: NoticeType.science, data: science});
   }
 
   return (
-    <NoticeContext.Provider
-      value={{isLoading, notices, getNoticies, changePage}}>
+    <NoticeContext.Provider value={{notices, getNoticies, changePage}}>
       {children}
     </NoticeContext.Provider>
   );
