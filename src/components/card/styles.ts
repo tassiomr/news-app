@@ -15,11 +15,11 @@ export const CardContainer = styled.View`
   width: 100%;
   margin-bottom: 16px;
   background-color: ${(props) => props.theme.backgroundColor};
-  border-radius: 10;
+  border-radius: 10px;
   ${Platform.select({
     ios: {
       shadowColor: '#000',
-      shadowOpacity: 0.5,
+      shadowOpacity: '0.5',
       shadowRadius: 5,
       shadowOffset: '1px 1px',
     },
