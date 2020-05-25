@@ -20,7 +20,7 @@ export const Button = styled.TouchableOpacity<{
 
   ${Platform.select({
     android: {
-      elevation: '10px',
+      elevation: 10,
     },
   })}
 `;
