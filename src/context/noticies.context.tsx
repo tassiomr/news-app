@@ -17,7 +17,7 @@ const NoticeContext = createContext<NotificeContext>({} as NotificeContext);
 
 export const NoticeProvider: React.FC = ({children}) => {
   const [notices, setNotices] = useState<{type: NoticeType; data: [INotice?]}>({
-    type: NoticeType.science,
+    type: NoticeType.technology,
     data: [],
   });
 
