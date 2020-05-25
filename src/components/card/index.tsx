@@ -1,11 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
-import {CardContainer, Image} from './styles';
+import {CardContainer, Image, TextWrapper} from './styles';
 import {Text} from '../text';
 import {INotice} from 'src/typescript/interfaces';
 import {Loader} from '../loader';
+import {Modal} from 'react-native';
 
-export const Card: React.FC<{notice: INotice}> = ({notice}) => {
+type Card = {
+  notice: INotice;
+  openModal: (params: any) => void;
+};
+
+export const Card: React.FC<Card> = ({notice, openModal}) => {
   const [loadImage, setLoadImage] = useState(false);
 
   return (
@@ -20,8 +26,9 @@ export const Card: React.FC<{notice: INotice}> = ({notice}) => {
         }}>
         {loadImage && <Loader />}
       </Image>
-      <Text.Title text={notice.title} />
-      <Text.Paragraph text={notice.resume} />
+      <TextWrapper>
+        <Text.Paragraph text={notice.title} />
+      </TextWrapper>
     </CardContainer>
   );
 };

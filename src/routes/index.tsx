@@ -18,7 +18,6 @@ const TabBar: React.FC = () => {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          let iconSize = focused ? size + 4 : size;
 
           if (route.name === 'Home') {
             iconName = 'home';
@@ -26,19 +25,14 @@ const TabBar: React.FC = () => {
             iconName = 'favorite';
           }
 
-          return (
-            <MaterialIcons name={iconName} size={iconSize} color={color} />
-          );
+          return <MaterialIcons name={iconName} size={size} color={color} />;
         },
       })}
       tabBarOptions={{
-        labelStyle: {
-          fontSize: normalize(14),
-        },
         activeTintColor: theme.activeIcon,
         inactiveTintColor: theme.inactiveIcon,
         style: {
-          backgroundColor: `${theme.backgroundColor}99`,
+          backgroundColor: `${theme.backgroundColor}`,
         },
       }}>
       <TabNavigator.Screen component={HomeRoutes} name="Home" />

@@ -33,15 +33,15 @@ const light: Theme = {
 const dark: Theme = {
   backgroundColor: Palette.midnightGreen,
   titleColor: Palette.cultured,
-  linkColor: Palette.pineGreen,
+  linkColor: Palette.cultured,
   paragraphColor: Palette.dutchWhite,
   activeIcon: Palette.cultured,
   inactiveIcon: Palette.pineGreen,
   button: {
-    selected: Palette.cultured,
-    deselected: Palette.liverOrgan,
-    textDeselected: Palette.cultured,
-    textSelected: Palette.liverOrgan,
+    selected: Palette.midnightGreen,
+    deselected: Palette.cultured,
+    textDeselected: Palette.midnightGreen,
+    textSelected: Palette.cultured,
   },
 };
 

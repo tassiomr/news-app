@@ -1,5 +1,5 @@
 import React from 'react';
-import {Favorites, Settings, Notice} from '../screens';
+import {Favorites, Settings} from '../screens';
 import {createStackNavigator} from '@react-navigation/stack';
 import {FavoriteProvider} from '../../src/context/favorites.context';
 
@@ -17,11 +17,6 @@ const FavoritesRoutes: React.FC = () => {
           options={headerOptions}
           component={Favorites}
           name="Favorites"
-        />
-        <FavoritesStack.Screen
-          options={headerOptions}
-          component={Notice}
-          name="Notice"
         />
         <FavoritesStack.Screen
           options={headerOptions}

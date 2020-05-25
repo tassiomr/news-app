@@ -6,7 +6,7 @@ export const Container = styled.View`
   background-color: ${(props) => props.theme.backgroundColor};
   ${Platform.select({
     ios: {
-      marginTop: 20,
+      paddingTop: 30,
     },
   })}
 `;
