@@ -3,7 +3,7 @@ import {ButtonWrapper, Button, ButtonText} from './styles';
 import {NoticeType} from '../../../src/typescript/enums';
 
 type Toogle = {
-  changePage: (...params: any) => any;
+  changePage: Function;
   type: NoticeType;
 };
 
