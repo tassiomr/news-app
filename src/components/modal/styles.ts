@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+import {Animated} from 'react-native';
+
+const BaseContainer = styled.View`
   background-color: rgba(0, 0, 0, 0.7);
   flex: 1;
   position: absolute;
@@ -10,7 +12,9 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const Wrapper = styled.View`
+export const Container = Animated.createAnimatedComponent(BaseContainer);
+
+export const BaseWrapper = styled.View`
   background-color: ${(props) => props.theme.backgroundColor};
   width: 100%;
   height: 50%;
@@ -19,13 +23,22 @@ export const Wrapper = styled.View`
   padding: 12px;
 `;
 
-export const Doodle = styled.View`
+export const Wrapper = Animated.createAnimatedComponent(BaseWrapper);
+
+export const Dot = styled.View`
   height: 10px;
   width: 100px;
   border-radius: 20px;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.titleColor};
   margin-bottom: 10px;
+  align-self: center;
 `;
+
+const BaseDotWrapper = styled.View`
+  width: 100%;
+`;
+
+export const DotWrapper = Animated.createAnimatedComponent(BaseDotWrapper);
 
 export const ShareButton = styled.TouchableOpacity`
   margin-top: 12px;

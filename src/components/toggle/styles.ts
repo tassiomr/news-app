@@ -17,6 +17,12 @@ export const Button = styled.TouchableOpacity<{
   border-top-right-radius: ${(props) => (!props.left ? '55px' : '0')};
   border-bottom-left-radius: ${(props) => (props.left ? '55px' : '0')};
   border-bottom-right-radius: ${(props) => (!props.left ? '55px' : '0')};
+
+  ${Platform.select({
+    android: {
+      elevation: '10px',
+    },
+  })}
 `;
 
 export const ButtonWrapper = styled.View`

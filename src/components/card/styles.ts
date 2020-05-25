@@ -29,6 +29,10 @@ export const CardContainer = styled.TouchableOpacity`
       shadowRadius: 5,
       shadowOffset: '0px 0px',
     },
+
+    android: {
+      elevation: '3px',
+    },
   })};
 `;
 
