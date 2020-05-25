@@ -1,9 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Screen, Text, NoticeFlatList, Toogle, Modal} from '../../components';
 import {useNotice} from '../../../src/context/noticies.context';
+import {INotice} from '../../../src/typescript/interfaces';
 
 export const Home: React.FC = () => {
   const {getNoticies, notices, changePage} = useNotice();
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [selectedNotice, setNotice] = useState<INotice | null>(null);
+
+  function openModal(notice: INotice) {
+    setModalIsVisible(true);
+    setNotice(notice);
+  }
 
   useEffect(() => {
     getNoticies();
@@ -12,10 +20,16 @@ export const Home: React.FC = () => {
   return (
     <>
       <Screen>
-        <NoticeFlatList data={notices.data} />
+        <NoticeFlatList openModal={openModal} notices={notices.data} />
         <Toogle type={notices.type} changePage={changePage} />
       </Screen>
-      {notices.data.length ? <Modal notice={notices.data[0]!} /> : null}
+      {modalIsVisible && (
+        <Modal
+          notice={selectedNotice!}
+          modalIsVisible={modalIsVisible}
+          closeModal={() => setModalIsVisible(false)}
+        />
+      )}
     </>
   );
 };
