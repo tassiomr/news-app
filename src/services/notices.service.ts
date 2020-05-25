@@ -12,7 +12,7 @@ const rawNotice = (data: any): [INotice?] => {
       id: e.title,
       title: e.title,
       resume: e.abstract,
-      picture: e.multimedia[0].url,
+      picture: e.multimedia[2].url,
       isFavorite: false,
       link: e.short_url,
     });
