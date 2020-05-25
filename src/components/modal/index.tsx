@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   PanGestureHandler,
 } from 'react-native-gesture-handler';
-import {Linking, Platform, Animated} from 'react-native';
+import {Linking, Platform, Animated, StatusBar} from 'react-native';
 import Share from 'react-native-share';
 import {INotice} from 'src/typescript/interfaces';
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -28,6 +28,8 @@ export const Modal: React.FC<{
 
   useEffect(() => {
     if (modalIsVisible) {
+      StatusBar.setHidden(true, 'fade');
+
       Animated.timing(translateY, {
         toValue: animationValues.translateYEnd,
         duration: 450,
@@ -54,8 +56,8 @@ export const Modal: React.FC<{
 
   function onHandlerStateChange(event: any) {
     const {translationY} = event.nativeEvent;
-
     if (translationY >= 10) {
+      StatusBar.setHidden(false, 'fade');
       Animated.timing(translateY, {
         toValue: animationValues.translateYInit,
         duration: animationValues.duration,
@@ -66,7 +68,9 @@ export const Modal: React.FC<{
         toValue: 0,
         duration: animationValues.duration,
         useNativeDriver: true,
-      }).start(() => closeModal());
+      }).start(() => {
+        closeModal();
+      });
     }
   }
 
