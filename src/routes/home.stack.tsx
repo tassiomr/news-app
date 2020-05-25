@@ -1,5 +1,5 @@
 import React from 'react';
-import {Home, Settings, Notice} from '../screens';
+import {Home, Settings} from '../screens';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NoticeProvider} from '../../src/context/noticies.context';
 
@@ -17,11 +17,6 @@ const HomeRoutes: React.FC = () => {
           options={headerOptions}
           component={Home}
           name="Home"
-        />
-        <HomeStack.Screen
-          options={headerOptions}
-          component={Notice}
-          name="Notice"
         />
         <HomeStack.Screen
           options={headerOptions}
