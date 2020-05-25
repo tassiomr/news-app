@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Screen, Text, NoticeFlatList, Toogle, Modal} from '../../components';
-import {useNotice} from '../../../src/context/noticies.context';
+import {useAppContext} from '../../context/app.context';
 import {INotice} from '../../../src/typescript/interfaces';
 
 export const Home: React.FC = () => {
-  const {getNoticies, notices, changePage} = useNotice();
+  const {getNoticies, notices, changePage} = useAppContext();
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [selectedNotice, setNotice] = useState<INotice | null>(null);
 
