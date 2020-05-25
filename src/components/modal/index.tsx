@@ -1,10 +1,14 @@
 import React, {useEffect} from 'react';
 import {Text} from '../../components';
-import {Container, Wrapper, Dot, DotWrapper, ShareButton} from './styles';
 import {
-  TouchableOpacity,
-  PanGestureHandler,
-} from 'react-native-gesture-handler';
+  Container,
+  Wrapper,
+  Dot,
+  DotWrapper,
+  ShareButton,
+  LinkButton,
+} from './styles';
+import {PanGestureHandler} from 'react-native-gesture-handler';
 import {Linking, Platform, Animated, StatusBar} from 'react-native';
 import Share from 'react-native-share';
 import {INotice} from 'src/typescript/interfaces';
@@ -75,44 +79,44 @@ export const Modal: React.FC<{
   }
 
   return modalIsVisible ? (
-    <Container
-      style={{
-        opacity,
-      }}>
-      <Wrapper
+    <PanGestureHandler
+      onGestureEvent={animateEvent}
+      onHandlerStateChange={onHandlerStateChange}>
+      <Container
         style={{
           opacity,
-          transform: [
-            {
-              translateY: translateY.interpolate({
-                inputRange: [0, 2000],
-                outputRange: [0, 2000],
-                extrapolate: 'clamp',
-              }),
-            },
-          ],
         }}>
-        <PanGestureHandler
-          onGestureEvent={animateEvent}
-          onHandlerStateChange={onHandlerStateChange}>
+        <Wrapper
+          style={{
+            opacity,
+            transform: [
+              {
+                translateY: translateY.interpolate({
+                  inputRange: [0, 2000],
+                  outputRange: [0, 2000],
+                  extrapolate: 'clamp',
+                }),
+              },
+            ],
+          }}>
           <DotWrapper>
             <Dot />
           </DotWrapper>
-        </PanGestureHandler>
-        <Text.Title text={notice?.title} />
-        <Text.Paragraph text={notice?.resume} />
-        <TouchableOpacity onPress={() => Linking.openURL(notice?.link)}>
-          <Text.Link text="Read the complete notice" />
-        </TouchableOpacity>
+          <Text.Title text={notice?.title} />
+          <Text.Paragraph text={notice?.resume} />
+          <LinkButton onPress={() => Linking.openURL(notice?.link)}>
+            <Text.Link text="Read the complete notice" />
+          </LinkButton>
 
-        <ShareButton onPress={() => Share.open({url: notice?.link})}>
-          <Icon
-            name={Platform.OS === 'ios' ? 'share-apple' : 'share-google'}
-            size={28}
-          />
-          <Text.Paragraph text="Share" />
-        </ShareButton>
-      </Wrapper>
-    </Container>
+          <ShareButton onPress={() => Share.open({url: notice?.link})}>
+            <Icon
+              name={Platform.OS === 'ios' ? 'share-apple' : 'share-google'}
+              size={28}
+            />
+            <Text.Paragraph text="Share" />
+          </ShareButton>
+        </Wrapper>
+      </Container>
+    </PanGestureHandler>
   ) : null;
 };

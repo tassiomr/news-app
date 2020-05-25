@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import {Animated} from 'react-native';
+import {normalize} from '../../../src/configs/helpers';
 
 const BaseContainer = styled.View`
   background-color: rgba(0, 0, 0, 0.7);
@@ -47,4 +48,10 @@ export const ShareButton = styled.TouchableOpacity`
 
   height: 50px;
   width: 50px;
+`;
+
+export const LinkButton = styled.TouchableOpacity`
+  width: ${normalize(120)}px;
+  height: 30px;
+  justify-content: center;
 `;
