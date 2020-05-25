@@ -1,12 +1,9 @@
 import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeRoutes from './home.stack';
-import FavoritesRoutes from './favorites.stack';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {ThemeContext} from 'styled-components';
-import {normalize} from '../../src/configs/helpers';
-
+import {Home, Favorites} from './screens';
 MaterialIcons.loadFont();
 
 const TabNavigator = createBottomTabNavigator();
@@ -35,8 +32,8 @@ const TabBar: React.FC = () => {
           backgroundColor: `${theme.backgroundColor}`,
         },
       }}>
-      <TabNavigator.Screen component={HomeRoutes} name="Home" />
-      <TabNavigator.Screen component={FavoritesRoutes} name="Favorites" />
+      <TabNavigator.Screen component={Home} name="Home" />
+      <TabNavigator.Screen component={Favorites} name="Favorites" />
     </TabNavigator.Navigator>
   );
 };

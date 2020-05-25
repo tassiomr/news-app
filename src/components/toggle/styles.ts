@@ -20,7 +20,7 @@ export const Button = styled.TouchableOpacity<{
 
   ${Platform.select({
     android: {
-      elevation: '10px',
+      elevation: 10,
     },
   })}
 `;
@@ -36,9 +36,9 @@ export const ButtonWrapper = styled.View`
   ${Platform.select({
     ios: {
       shadowOpacity: '1',
-      shadowColor: '#000',
+      shadowColor: '#000000AA',
       shadowOffset: '1px 1px',
-      shadowRadius: 10,
+      shadowRadius: 5,
     },
   })}
 `;

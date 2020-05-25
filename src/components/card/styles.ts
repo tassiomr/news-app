@@ -31,7 +31,7 @@ export const CardContainer = styled.TouchableOpacity`
     },
 
     android: {
-      elevation: '3px',
+      elevation: 3,
     },
   })};
 `;

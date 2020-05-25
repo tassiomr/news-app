@@ -13,12 +13,19 @@ export const Toogle: React.FC<Toogle> = ({changePage, type}) => {
 
   return (
     <ButtonWrapper>
-      <Button onPress={changePage} selected={isTechSelected} left>
+      <Button
+        onPress={() => changePage(NoticeType.technology)}
+        selected={isTechSelected}
+        disabled={isTechSelected}
+        left>
         <ButtonText selected={isTechSelected}>
           {NoticeType.technology}
         </ButtonText>
       </Button>
-      <Button onPress={changePage} selected={isScienceSelected}>
+      <Button
+        onPress={() => changePage(NoticeType.science)}
+        disabled={isScienceSelected}
+        selected={isScienceSelected}>
         <ButtonText selected={isScienceSelected}>
           {NoticeType.science}
         </ButtonText>
