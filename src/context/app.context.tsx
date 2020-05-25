@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  Children,
-  useState,
-  useContext,
-  useEffect,
-} from 'react';
+import React, {createContext, useState, useContext, useEffect} from 'react';
 import {INotice} from '../typescript/interfaces';
 import {NoticeType} from '../typescript/enums';
 import noticesService from '../services/notices.service';
@@ -23,18 +17,23 @@ interface AppContext {
   changeColorSchema: Function;
   copyright: string;
   theme: Theme;
+  isLoading: boolean;
 }
 
 const AppContext = createContext<AppContext>({} as AppContext);
 
 export const AppProvider: React.FC = ({children}) => {
   const colorSchema = useColorScheme();
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [themeSchema, setTheme] = useState<Theme | null>(theme.light);
+  const [technology, setTechnology] = useState<[INotice?]>([]);
+  const [science, setScience] = useState<[INotice?]>([]);
+  const [copyright, setCopyright] = useState<string>('');
   const [notices, setNotices] = useState<{type: NoticeType; data: [INotice?]}>({
     type: NoticeType.technology,
     data: [],
   });
-
-  const [themeSchema, setTheme] = useState<Theme | null>(theme.light);
 
   useEffect(() => {
     themeService.getApplicationTheme().then((theme) => {
@@ -46,21 +45,22 @@ export const AppProvider: React.FC = ({children}) => {
     });
   }, []);
 
-  const [technology, setTechnology] = useState<[INotice?]>([]);
-  const [science, setScience] = useState<[INotice?]>([]);
-  const [copyright, setCopyright] = useState<string>('');
-
   async function getNoticies() {
     if (!notices.data.length) {
-      noticesService.getTechnologyNotices().then((response: any) => {
-        setTechnology(response.data);
-        setCopyright(response.copyright);
-        setNotices({...notices, data: response.data});
+      setIsLoading(true);
+      const responseTechnology = await noticesService.getTechnologyNotices();
+      const responseScience = await noticesService.getScienceNotices();
 
-        noticesService.getScienceNotices().then((e: any) => {
-          setScience(response.data);
-        });
+      setNotices({
+        type: NoticeType.technology,
+        data: responseTechnology.data as [INotice],
       });
+
+      setTechnology(responseTechnology.data as [INotice]);
+      setScience(responseScience.data as [INotice]);
+      setCopyright(responseScience.copyright || responseTechnology.copyright);
+
+      setIsLoading(false);
     }
   }
 
@@ -83,6 +83,7 @@ export const AppProvider: React.FC = ({children}) => {
         copyright,
         theme: themeSchema || theme[colorSchema || 'light'],
         changeColorSchema,
+        isLoading,
       }}>
       {children}
     </AppContext.Provider>
