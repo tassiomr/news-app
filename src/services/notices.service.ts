@@ -22,27 +22,26 @@ const rawNotice = (data: any): [INotice?] => {
 };
 
 async function getTechnologyNotices() {
-    const response: any = await api.get(
-      technology.replace('{api-key}', constants.apiKey),
-    );
+  const response: any = await api.get(
+    technology.replace('{api-key}', constants.apiKey),
+  );
 
-    if (response) {
-      return {data: rawNotice(response.results), copyright: response.copyright};
-    }
+  if (response) {
+    return {data: rawNotice(response.results), copyright: response.copyright};
+  }
 
-    return {data: [], copyright: ''};
+  return {data: [], copyright: ''};
 }
 async function getScienceNotices() {
-    const response: any = await api.get(
-      science.replace('{api-key}', constants.apiKey),
-    );
+  const response: any = await api.get(
+    science.replace('{api-key}', constants.apiKey),
+  );
 
-    if (response) {
-      return {data: rawNotice(response.results), copyright: response.copyright};
-    }
+  if (response) {
+    return {data: rawNotice(response.results), copyright: response.copyright};
+  }
 
-    return {data: [], copyright: ''};
-  } 
+  return {data: [], copyright: ''};
 }
 
 export default {
