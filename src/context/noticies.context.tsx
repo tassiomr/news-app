@@ -26,11 +26,11 @@ export const NoticeProvider: React.FC = ({children}) => {
 
   async function getNoticies() {
     if (!notices.data.length) {
-      noticesService.getScienceNotices().then((e: any) => {
-        setScience(e);
+      noticesService.getTechnologyNotices().then((e: any) => {
+        setTechnology(e);
         setNotices({...notices, data: e});
-        noticesService.getTechnologyNotices().then((e: any) => {
-          setTechnology(e);
+        noticesService.getScienceNotices().then((e: any) => {
+          setScience(e);
         });
       });
     }
@@ -41,6 +41,12 @@ export const NoticeProvider: React.FC = ({children}) => {
       ? setNotices({type: NoticeType.technology, data: technology})
       : setNotices({type: NoticeType.science, data: science});
   }
+
+  function getFavorites() {}
+
+  function deleteFavorite() {}
+
+  function deleteAllFavorites() {}
 
   return (
     <NoticeContext.Provider value={{notices, getNoticies, changePage}}>
