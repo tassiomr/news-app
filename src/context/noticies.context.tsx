@@ -23,6 +23,7 @@ export const NoticeProvider: React.FC = ({children}) => {
 
   const [technology, setTechnology] = useState<[INotice?]>([]);
   const [science, setScience] = useState<[INotice?]>([]);
+  const [favorites, setFavorites] = useState<[INotice?]>([]);
 
   async function getNoticies() {
     if (!notices.data.length) {
@@ -42,14 +43,13 @@ export const NoticeProvider: React.FC = ({children}) => {
       : setNotices({type: NoticeType.science, data: science});
   }
 
-  function getFavorites() {}
-
-  function deleteFavorite() {}
-
-  function deleteAllFavorites() {}
-
   return (
-    <NoticeContext.Provider value={{notices, getNoticies, changePage}}>
+    <NoticeContext.Provider
+      value={{
+        notices,
+        getNoticies,
+        changePage,
+      }}>
       {children}
     </NoticeContext.Provider>
   );

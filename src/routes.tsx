@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {ThemeContext} from 'styled-components';
-import {Home, Favorites} from './screens';
+import {Home, Settings} from './screens';
 MaterialIcons.loadFont();
 
 const TabNavigator = createBottomTabNavigator();
@@ -19,7 +19,7 @@ const TabBar: React.FC = () => {
           if (route.name === 'Home') {
             iconName = 'home';
           } else {
-            iconName = 'favorite';
+            iconName = 'settings';
           }
 
           return <MaterialIcons name={iconName} size={size} color={color} />;
@@ -33,7 +33,7 @@ const TabBar: React.FC = () => {
         },
       }}>
       <TabNavigator.Screen component={Home} name="Home" />
-      <TabNavigator.Screen component={Favorites} name="Favorites" />
+      <TabNavigator.Screen component={Settings} name="Settings" />
     </TabNavigator.Navigator>
   );
 };

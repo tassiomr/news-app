@@ -13,6 +13,7 @@ import {Linking, Platform, Animated, StatusBar} from 'react-native';
 import Share from 'react-native-share';
 import {INotice} from 'src/typescript/interfaces';
 import Icon from 'react-native-vector-icons/EvilIcons';
+import {useNotice} from '../../../src/context/noticies.context';
 
 const animationValues = {
   translateYInit: 400,
