@@ -3,14 +3,24 @@ import {INotice} from '../../typescript/interfaces';
 import {FlatList} from 'react-native';
 import {Card} from '../card';
 
-export const NoticeFlatList: React.FC<{data: [INotice?]}> = ({data}) => {
+type NoticeFlatList = {
+  openModal: (notice: INotice) => void;
+  notices: [INotice?];
+};
+
+export const NoticeFlatList: React.FC<NoticeFlatList> = ({
+  notices,
+  openModal,
+}) => {
   return (
     <FlatList
       contentContainerStyle={{paddingTop: 16, paddingBottom: 80}}
       keyExtractor={(item) => item?.id!}
       style={{padding: 16}}
-      data={data}
-      renderItem={({item}) => <Card openModal={() => {}} notice={item!} />}
+      data={notices}
+      renderItem={({item}) => (
+        <Card onPress={() => openModal(item!)} notice={item!} />
+      )}
     />
   );
 };
