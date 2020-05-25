@@ -36,8 +36,8 @@ export const NoticeProvider: React.FC = ({children}) => {
     }
   }
 
-  function changePage() {
-    notices.type === NoticeType.science
+  function changePage(noticeType: NoticeType) {
+    noticeType === NoticeType.technology
       ? setNotices({type: NoticeType.technology, data: technology})
       : setNotices({type: NoticeType.science, data: science});
   }
