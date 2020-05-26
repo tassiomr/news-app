@@ -14,10 +14,10 @@
      <td>Settings</td>
   </tr>
   <tr>
-    <td><img src="screenshots/splash.png" width=270 height=480></td>
-    <td><img src="screenshots/dark1.png" width=270 height=480></td>
-    <td><img src="screenshots/dark2.png" width=270 height=480></td>
-    <td><img src="screenshots/dark3.png" width=270 height=480></td>
+    <td><img src="screenshots/splash.png" width=200 height=410></td>
+    <td><img src="screenshots/dark1.png" width=200 height=410></td>
+    <td><img src="screenshots/dark2.png" width=200 height=410></td>
+    <td><img src="screenshots/dark3.png" width=200 height=410></td>
   </tr>
 </table>
 
@@ -31,10 +31,10 @@
      <td>Settings</td>
   </tr>
   <tr>
-    <td><img src="screenshots/splash.png" width=270 height=480></td>
-    <td><img src="screenshots/light1.png" width=270 height=480></td>
-    <td><img src="screenshots/light2.png" width=270 height=480></td>
-    <td><img src="screenshots/light3.png" width=270 height=480></td>
+    <td><img src="screenshots/splash.png" width=200 height=410></td>
+    <td><img src="screenshots/light1.png" width=200 height=410></td>
+    <td><img src="screenshots/light2.png" width=200 height=410></td>
+    <td><img src="screenshots/light3.png" width=200 height=410></td>
 
   </tr>
  </table>
