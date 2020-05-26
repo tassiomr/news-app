@@ -61,5 +61,4 @@
 
 * Make sure you have installed the project packages. Run in terminal 'yarn'.
 
-
-Or download [apk:](https://github.com/tassiomr/compasso-react-native/blob/develop/nyt.apk?raw=true) 
+- Or download [apk file](https://github.com/tassiomr/compasso-react-native/blob/develop/nyt.apk?raw=true)
