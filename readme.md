@@ -8,20 +8,36 @@
 
 <table>
   <tr>
-    <td>Home</td>
+     <td>Splah</td>
+      <td>Home</td>
      <td>Modal</td>
      <td>Settings</td>
   </tr>
   <tr>
-    <td><img src="screenshots/screenshots/dark1.png" width=270 height=480></td>
-    <td><img src="screenshots/screenshots/dark2.png" width=270 height=480></td>
-    <td><img src="screenshots/screenshots/dark3.png" width=270 height=480></td>
+    <td><img src="screenshots/splash.png" width=270 height=480></td>
+    <td><img src="screenshots/dark1.png" width=270 height=480></td>
+    <td><img src="screenshots/dark2.png" width=270 height=480></td>
+    <td><img src="screenshots/dark3.png" width=270 height=480></td>
   </tr>
- </table>
+</table>
 
 #### light
 
-![N!Solid](screenshots/splash.png)![N!Solid](screenshots/light1.png)![N!Solid](screenshots/light2.png)![N!Solid](screenshots/light3.png)
+<table>
+  <tr>
+     <td>Splah</td>
+      <td>Home</td>
+     <td>Modal</td>
+     <td>Settings</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/splash.png" width=270 height=480></td>
+    <td><img src="screenshots/light1.png" width=270 height=480></td>
+    <td><img src="screenshots/light2.png" width=270 height=480></td>
+    <td><img src="screenshots/light3.png" width=270 height=480></td>
+
+  </tr>
+ </table>
 
 ### Run and Build !?!
 
