@@ -60,3 +60,6 @@
       - not available
 
 * Make sure you have installed the project packages. Run in terminal 'yarn'.
+
+
+Or download [apk:](https://github.com/tassiomr/compasso-react-native/blob/develop/nyt.apk?raw=true) 
