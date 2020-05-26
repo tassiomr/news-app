@@ -15,7 +15,11 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     getNoticies();
-  });
+
+    return () => {
+      // setModalIsVisible(false);
+    };
+  }, []);
 
   return (
     <>

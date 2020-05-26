@@ -2,6 +2,7 @@ import React from 'react';
 import {INotice} from '../../typescript/interfaces';
 import {FlatList, Platform} from 'react-native';
 import {Card} from '../card';
+import {normalize} from '../../../src/configs/helpers';
 
 type NoticeFlatList = {
   openModal: (notice: INotice) => void;
@@ -15,17 +16,17 @@ export const NoticeFlatList: React.FC<NoticeFlatList> = ({
   return (
     <FlatList
       contentContainerStyle={{
-        paddingTop: 16,
-        paddingBottom: 80,
+        paddingTop: normalize(16),
+        paddingBottom: normalize(80),
         ...Platform.select({
           android: {
-            paddingLeft: 4,
-            paddingRight: 4,
+            paddingLeft: normalize(4),
+            paddingRight: normalize(4),
           },
         }),
       }}
       keyExtractor={(item) => item?.id!}
-      style={{padding: 16}}
+      style={{padding: normalize(16)}}
       data={notices}
       renderItem={({item}) => (
         <Card onPress={() => openModal(item!)} notice={item!} />

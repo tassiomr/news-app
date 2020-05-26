@@ -7,12 +7,12 @@ import {
   DotWrapper,
   ShareButton,
   LinkButton,
+  ShareIcon,
 } from './styles';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 import {Linking, Platform, Animated, StatusBar} from 'react-native';
 import Share from 'react-native-share';
 import {INotice} from 'src/typescript/interfaces';
-import Icon from 'react-native-vector-icons/EvilIcons';
 
 const animationValues = {
   translateYInit: 400,
@@ -109,10 +109,7 @@ export const Modal: React.FC<{
           </LinkButton>
 
           <ShareButton onPress={() => Share.open({url: notice?.link})}>
-            <Icon
-              name={Platform.OS === 'ios' ? 'share-apple' : 'share-google'}
-              size={28}
-            />
+            <ShareIcon />
             <Text.Paragraph text="Share" />
           </ShareButton>
         </Wrapper>

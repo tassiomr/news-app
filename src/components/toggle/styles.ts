@@ -1,5 +1,6 @@
 import {Platform} from 'react-native';
 import styled from 'styled-components/native';
+import {normalize} from '../../../src/configs/helpers';
 
 export const Button = styled.TouchableOpacity<{
   left?: boolean;
@@ -9,8 +10,8 @@ export const Button = styled.TouchableOpacity<{
     props.selected
       ? props.theme.button.selected
       : props.theme.button.deselected};
-  height: 55px;
-  width: 120px;
+  height: ${normalize(45)}px;
+  width: ${normalize(100)}px;
   justify-content: center;
   align-items: center;
   border-top-left-radius: ${(props) => (props.left ? '55px' : '0')};
@@ -26,7 +27,7 @@ export const Button = styled.TouchableOpacity<{
 `;
 
 export const ButtonWrapper = styled.View`
-  height: 80px;
+  height: ${normalize(80)}px;
   width: 100%;
   position: absolute;
   bottom: 0;

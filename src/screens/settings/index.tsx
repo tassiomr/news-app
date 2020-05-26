@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Screen, Text} from '../../components';
-import {CopyRight, Wrapper, Button, Toogle} from './styles';
+import {CopyRight, Wrapper, Button, Toogle, WrapperControllers} from './styles';
 import {useAppContext} from '../../context/app.context';
 import {appVersion} from '../../../app.json';
 import {useColorScheme} from 'react-native';
@@ -12,6 +12,7 @@ export const Settings: React.FC = () => {
 
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [systemDarkMode, setSystemDarkMode] = useState<boolean>(false);
+  const [firstLoad, setFirstLoad] = useState<boolean>(true);
   const colorSchema = useColorScheme();
 
   function handleSchema() {
@@ -41,7 +42,11 @@ export const Settings: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    handleSchema();
+    if (!firstLoad) {
+      handleSchema();
+    }
+
+    setFirstLoad(false);
   }, [systemDarkMode, darkMode]);
 
   useEffect(() => {
@@ -54,25 +59,28 @@ export const Settings: React.FC = () => {
   return (
     <Screen>
       <Wrapper>
-        <Text.Title text="App Info" />
-        <CopyRight>{copyright}</CopyRight>
-        <CopyRight>App Version: {appVersion}</CopyRight>
-        <Text.Title text="Settings" />
-        <Button disabled={systemDarkMode}>
-          <Text.Paragraph text="Dark Mode" />
-          <Toogle
-            value={darkMode && !systemDarkMode}
-            disabled={systemDarkMode}
-            onValueChange={(value: boolean) => setDarkMode(value)}
-          />
-        </Button>
-        <Button>
-          <Text.Paragraph text="System Mode" />
-          <Toogle
-            value={systemDarkMode}
-            onValueChange={(value: boolean) => setSystemDarkMode(value)}
-          />
-        </Button>
+        <WrapperControllers>
+          <Text.Title text="Settings" />
+          <Button disabled={systemDarkMode}>
+            <Text.Paragraph text="Dark Mode" />
+            <Toogle
+              value={darkMode && !systemDarkMode}
+              disabled={systemDarkMode}
+              onValueChange={(value: boolean) => setDarkMode(value)}
+            />
+          </Button>
+          <Button>
+            <Text.Paragraph text="System Mode" />
+            <Toogle
+              value={systemDarkMode}
+              onValueChange={(value: boolean) => setSystemDarkMode(value)}
+            />
+          </Button>
+          <Text.Title text="App Info" />
+          <CopyRight>{copyright}</CopyRight>
+          <CopyRight>App Version: {appVersion}</CopyRight>
+          <CopyRight>Created by Tássio Marcos</CopyRight>
+        </WrapperControllers>
       </Wrapper>
     </Screen>
   );

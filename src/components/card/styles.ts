@@ -11,14 +11,15 @@ export const Image = styled.ImageBackground.attrs((props) => ({
   width: ${normalize(50)}px;
   justify-content: center;
   align-items: center;
+  margin-right: ${normalize(8)}px;
 `;
 
 export const CardContainer = styled.TouchableOpacity`
   min-height: ${normalize(50)}px;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: ${normalize(16)}px;
   background-color: ${(props) => props.theme.backgroundColor};
-  border-radius: 4px;
+  border-radius: ${normalize(4)}px;
   flex-direction: row;
   justify-content: center;
   align-items: center;

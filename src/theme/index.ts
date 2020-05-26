@@ -13,6 +13,7 @@ export interface Theme {
     textSelected: Palette;
     textDeselected: Palette;
   };
+  settingsInfo: {background: Palette; text: Palette};
 }
 
 const light: Theme = {
@@ -28,6 +29,10 @@ const light: Theme = {
     textSelected: Palette.cultured,
     textDeselected: Palette.liverOrgan,
   },
+  settingsInfo: {
+    background: Palette.midnightGreen,
+    text: Palette.cultured,
+  },
 };
 
 const dark: Theme = {
@@ -42,6 +47,10 @@ const dark: Theme = {
     deselected: Palette.cultured,
     textDeselected: Palette.midnightGreen,
     textSelected: Palette.cultured,
+  },
+  settingsInfo: {
+    background: Palette.pineGreen,
+    text: Palette.dutchWhite,
   },
 };
 

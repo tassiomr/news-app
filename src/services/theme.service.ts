@@ -24,9 +24,13 @@ async function bindingValues(): Promise<{
 
   let darkMode = null;
 
+  console.log(systemTheme);
   if (!systemTheme) {
     darkMode = await getItem(Keys.DARK_MODE);
+    console.log('darker', await getItem(Keys.DARK_MODE));
   }
+
+  console.log(darkMode);
 
   return {
     darkMode: darkMode ? !!darkMode : false,
