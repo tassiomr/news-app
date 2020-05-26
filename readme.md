@@ -4,17 +4,24 @@
 
 ### Screenshots
 
-#### splash
-
-![N!Solid](screenshots/splash.png)
-
 #### dark
 
-![N!Solid](screenshots/dark1.png)![N!Solid](screenshots/dark2.png)![N!Solid](screenshots/dark3.png)
+<table>
+  <tr>
+    <td>Home</td>
+     <td>Modal</td>
+     <td>Settings</td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/screenshots/dark1.png" width=270 height=480></td>
+    <td><img src="screenshots/screenshots/dark2.png" width=270 height=480></td>
+    <td><img src="screenshots/screenshots/dark3.png" width=270 height=480></td>
+  </tr>
+ </table>
 
 #### light
 
-![N!Solid](screenshots/light1.png)![N!Solid](screenshots/light2.png)![N!Solid](screenshots/light3.png)
+![N!Solid](screenshots/splash.png)![N!Solid](screenshots/light1.png)![N!Solid](screenshots/light2.png)![N!Solid](screenshots/light3.png)
 
 ### Run and Build !?!
 
