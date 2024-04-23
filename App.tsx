@@ -1,7 +1,6 @@
-import { SafeAreaView, StyleSheet, View, useColorScheme } from "react-native";
+import { View, useColorScheme } from "react-native";
 import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
 import { darkTheme, lightTheme } from "./src/theme/pallete";
-import { Home } from "./src/screens";
 import Navigator from "./src/app/routes";
 
 export default function App() {
