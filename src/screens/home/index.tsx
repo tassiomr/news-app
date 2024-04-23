@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, SafeAreaView, View } from "react-native";
 import { Button, Card, Text, useTheme } from "react-native-paper";
 import useNotices from "../../hooks/useNotices";
@@ -30,6 +30,7 @@ const Separator = () => <View style={{ height: 20 }} />;
 export default function Home() {
   const { colors } = useTheme();
   const navigation = useNavigation();
+  const scroll = useRef(null);
 
   const { kindNotice, changeNotice, notices, isLoading } = useNotices();
   const [buttons, setButtons] = useState([
@@ -56,6 +57,11 @@ export default function Home() {
   }, [kindNotice]);
 
   useEffect(() => {
+    if (scroll) {
+      scroll.current.scrollToIndex({
+        index: 0,
+      });
+    }
     setButtons(formatButtons);
   }, [formatButtons]);
 
@@ -71,6 +77,7 @@ export default function Home() {
           Latest News
         </Text>
         <FlatList
+          ref={scroll}
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{
             paddingHorizontal: 8,
