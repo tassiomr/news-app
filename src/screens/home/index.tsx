@@ -1,6 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FlatList, SafeAreaView, View } from "react-native";
-import { Button, Card, Text, useTheme } from "react-native-paper";
+import {
+  Button,
+  Card,
+  Text,
+  useTheme,
+  ActivityIndicator,
+} from "react-native-paper";
 import useNotices from "../../hooks/useNotices";
 import { useNavigation } from "@react-navigation/native";
 
@@ -102,19 +108,27 @@ export default function Home() {
         />
       </View>
       <View style={{ flex: 6, padding: 8 }}>
-        <FlatList
-          ItemSeparatorComponent={Separator}
-          keyExtractor={(item) => item.title}
-          renderItem={({ item }) => {
-            if (!item.title.length) {
-              return null;
-            }
-            return <NewsCard onPress={handleOnPress} item={item} />;
-          }}
-          data={notices}
-          showsVerticalScrollIndicator={false}
-          windowSize={3}
-        />
+        {isLoading ? (
+          <View
+            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+          >
+            <ActivityIndicator />
+          </View>
+        ) : (
+          <FlatList
+            ItemSeparatorComponent={Separator}
+            keyExtractor={(item) => item.title}
+            renderItem={({ item }) => {
+              if (!item.title.length) {
+                return null;
+              }
+              return <NewsCard onPress={handleOnPress} item={item} />;
+            }}
+            data={notices}
+            showsVerticalScrollIndicator={false}
+            windowSize={3}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
