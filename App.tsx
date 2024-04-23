@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View, useColorScheme } from "react-native";
+import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
+import { darkTheme, lightTheme } from "./src/theme/pallete";
+import { Home } from "./src/screens";
+import Navigator from "./src/app/routes";
 
 export default function App() {
+  const systemTheme = useColorScheme();
+
+  const paperTheme =
+    systemTheme === "dark"
+      ? {
+          ...MD3DarkTheme,
+          colors: darkTheme,
+        }
+      : { ...MD3LightTheme, colors: lightTheme };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={paperTheme}>
+      <View style={{ flex: 1 }}>
+        <Navigator />
+      </View>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
