@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import store from "../stores/notices.store";
-import axios from "axios";
+import noticesService from "../services/notices.service";
 
 export default function useNotices() {
   const [kindNotice, setNotice] = useState("home");
   const [isLoading, setIsLoading] = useState(true);
   const data = store((store) => store[kindNotice]);
 
-  const getNotices = async () => {
+  const handleGetNotices = async () => {
     try {
       if (data === null) {
         setIsLoading(true);
-        const { data } = await axios.get(
-          `https://api.nytimes.com/svc/topstories/v2/${kindNotice}.json?api-key=QHKp0232LFP75IddG2zhwd308vQ1ux0q`
-        );
+        const data = await noticesService.getNotices(kindNotice);
 
-        store.setState({ [kindNotice]: data.results });
+        store.setState({ [kindNotice]: data });
       }
     } catch (error) {
       console.error(error);
@@ -25,7 +23,7 @@ export default function useNotices() {
   };
 
   useEffect(() => {
-    getNotices();
+    handleGetNotices();
   }, [kindNotice]);
 
   return {
